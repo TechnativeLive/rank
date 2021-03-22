@@ -2,13 +2,9 @@ import { Strategies } from './types';
 import { compareScorecards } from './compareScorecards';
 import { findNextFalsey } from './findNextFalsey';
 
-export function assignRankToField(
-  data: any[],
-  sortItems: any[],
-  strategem: Strategies
-) {
+const ranks = (data: any[], sortItems: any[], strategem: Strategies) => {
   const tiedRanks = [];
-  let assignableRanks: any[] = [];
+  let assignableRanks: number[] = [];
   for (let index = 0; index < data.length - 1; index++) {
     const isTied = compareScorecards(
       data[index],
@@ -83,4 +79,6 @@ export function assignRankToField(
   }
 
   return assignableRanks;
-}
+};
+
+export default ranks;
