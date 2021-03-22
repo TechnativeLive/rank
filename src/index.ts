@@ -2,14 +2,14 @@ import { Strategies } from './types';
 import { compareScorecards } from './compareScorecards';
 import { findNextFalsey } from './findNextFalsey';
 
-const ranks = (data: any[], sortItems: any[], strategem: Strategies) => {
+const ranks = (data: any[], criteria: any[], strategem: Strategies) => {
   const tiedRanks = [];
   let assignableRanks: number[] = [];
   for (let index = 0; index < data.length - 1; index++) {
     const isTied = compareScorecards(
       data[index],
       data[index + 1],
-      sortItems.map((sortItem) => sortItem.field)
+      criteria.map((criterion) => criterion.field)
     );
     tiedRanks.push(isTied);
   } //End of for scorecard of data loop
@@ -50,16 +50,25 @@ const ranks = (data: any[], sortItems: any[], strategem: Strategies) => {
 
     // Fractional - 1 | 2.5 | 2.5 | 4
     case 'fractional':
+      let avg = undefined;
       for (let index = 0; index < tiedRanks.length; index++) {
+        // default ranking (same as standard)
         let rank = index + 1;
-        if (tiedRanks[index]) {
-          const nextUntiedRank = findNextFalsey(index + 1, tiedRanks);
 
-          const avg = (nextUntiedRank - (index + 1)) / 2 + 1;
-          rank = index + avg;
+        if (tiedRanks[index]) {
+          // on the first tied element, store a value for the average rank of that tied group
+          if (avg === undefined) {
+            const nextUntiedIndex = findNextFalsey(index + 1, tiedRanks);
+            avg = (nextUntiedIndex + index + 1) / 2;
+          }
+          rank = avg;
         } else if (tiedRanks[index - 1]) {
+          // this is the last element of a tied group
           rank = assignableRanks[index - 1];
+          avg = undefined;
         }
+
+        // if the element is not tied with any other, fallback to default ranking
 
         assignableRanks.push(rank);
       }
