@@ -1,7 +1,7 @@
 export type Strategies =
-  | 'standard'
-  | 'modified'
-  | 'dense'
-  | 'ordinal'
-  | 'fractional'
+  | "standard"
+  | "modified"
+  | "dense"
+  | "ordinal"
+  | "fractional"
   | undefined;

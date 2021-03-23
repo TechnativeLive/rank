@@ -1,6 +1,6 @@
-import { Strategies } from './types';
-import { compareScorecards } from './compareScorecards';
-import { findNextFalsey } from './findNextFalsey';
+import { Strategies } from "./types";
+import { compareScorecards } from "./compareScorecards";
+import { findNextFalsey } from "./findNextFalsey";
 
 const ranks = (data: any[], criteria: any[], strategem: Strategies) => {
   const tiedRanks = [];
@@ -22,7 +22,7 @@ const ranks = (data: any[], criteria: any[], strategem: Strategies) => {
 
   switch (strategem) {
     // Modified - 1334
-    case 'modified':
+    case "modified":
       assignableRanks = tiedRanks.map((bool, index, list) => {
         if (bool) {
           rank = findNextFalsey(index + 1, list);
@@ -33,7 +33,7 @@ const ranks = (data: any[], criteria: any[], strategem: Strategies) => {
       break;
 
     //Dense - 1223
-    case 'dense':
+    case "dense":
       for (let i = 0; i < tiedRanks.length; i++) {
         rank = i + 1;
         assignableRanks.push(rank + counter);
@@ -42,14 +42,14 @@ const ranks = (data: any[], criteria: any[], strategem: Strategies) => {
 
       break;
 
-    case 'ordinal':
+    case "ordinal":
       for (let index = 0; index < tiedRanks.length; index++) {
         assignableRanks.push(index + 1);
       }
       break;
 
     // Fractional - 1 | 2.5 | 2.5 | 4
-    case 'fractional':
+    case "fractional":
       let avg = undefined;
       for (let index = 0; index < tiedRanks.length; index++) {
         // default ranking (same as standard)
