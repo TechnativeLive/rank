@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from "lodash.get";
 
 export function compareScorecards(a: any, b: any, fields: string[]): boolean {
   // check we have something to compare by
