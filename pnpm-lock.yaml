@@ -1,5 +1,8 @@
+dependencies:
+  lodash.get: 4.4.2
 devDependencies:
   '@types/jest': 26.0.21
+  '@types/lodash.get': 4.4.6
   eslint: 7.22.0
   prettier: 2.2.1
   typescript: 4.2.3
@@ -74,6 +77,16 @@ packages:
     dev: true
     resolution:
       integrity: sha512-ab9TyM/69yg7eew9eOwKMUmvIZAKEGZYlq/dhe5/0IMUd/QLJv5ldRMdddSn+u22N13FP3s5jYyktxuBwY0kDA==
+  /@types/lodash.get/4.4.6:
+    dependencies:
+      '@types/lodash': 4.14.170
+    dev: true
+    resolution:
+      integrity: sha512-E6zzjR3GtNig8UJG/yodBeJeIOtgPkMgsLjDU3CbgCAPC++vJ0eCMnJhVpRZb/ENqEFlov1+3K9TKtY4UdWKtQ==
+  /@types/lodash/4.14.170:
+    dev: true
+    resolution:
+      integrity: sha512-bpcvu/MKHHeYX+qeEN8GE7DIravODWdACVA1ctevD8CN24RhPZIKMn9ntfAsrvLfSX3cR5RrBKAbYm9bGs0A+Q==
   /@types/node/14.14.35:
     dev: true
     resolution:
@@ -601,6 +614,10 @@ packages:
       node: '>= 0.8.0'
     resolution:
       integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==
+  /lodash.get/4.4.2:
+    dev: false
+    resolution:
+      integrity: sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
   /lodash/4.17.21:
     dev: true
     resolution:
@@ -885,6 +902,8 @@ packages:
       integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 specifiers:
   '@types/jest': ^26.0.20
+  '@types/lodash.get': ^4.4.6
   eslint: ^7.22.0
+  lodash.get: ^4.4.2
   prettier: ^2.2.1
   typescript: ^4.2.3
